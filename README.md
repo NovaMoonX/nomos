@@ -55,11 +55,7 @@ npm install
    - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
    - Enable Email/Password authentication
    - Create a Firestore database
-   - Copy `.env.example` to `.env` and fill in your Firebase configuration:
-
-```bash
-cp .env.example .env
-```
+   - Create a `.env` file in the root directory with your Firebase configuration
 
 4. Start the development server:
 ```bash
@@ -68,7 +64,7 @@ npm run dev
 
 ## Firebase Configuration
 
-Create a `.env` file in the root directory with your Firebase credentials:
+The project requires a `.env` file in the root directory with your Firebase credentials:
 
 ```env
 VITE_FIREBASE_API_KEY=your_api_key_here
@@ -78,6 +74,8 @@ VITE_FIREBASE_STORAGE_BUCKET=your_project_id.appspot.com
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id_here
 VITE_FIREBASE_APP_ID=your_app_id_here
 ```
+
+Get these values from your Firebase project settings.
 
 ## Firestore Security Rules
 
