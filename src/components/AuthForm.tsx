@@ -20,25 +20,18 @@ export function AuthForm({ mode, onToggleMode }: AuthFormProps) {
     e.preventDefault();
     setLoading(true);
 
-    const result = {
-      success: false,
-      error: null as Error | null,
-    };
-
     try {
       if (mode === 'login') {
         await signInWithEmail(email, password);
       } else {
         await signUpWithEmail(email, password);
       }
-      result.success = true;
       addToast({
         title: mode === 'login' ? 'Welcome back!' : 'Account created!',
         description: mode === 'login' ? 'Successfully signed in.' : 'Welcome to Nomos!',
         type: 'success',
       });
     } catch (error) {
-      result.error = error as Error;
       addToast({
         title: 'Authentication Error',
         description: (error as Error).message,
