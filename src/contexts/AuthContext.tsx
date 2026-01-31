@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
   type User,
 } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+import { auth } from '@lib/firebase/config';
 import { AuthContext } from '@hooks/useAuth';
 
 interface AuthProviderProps {

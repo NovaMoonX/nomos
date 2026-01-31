@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, Input, Label } from '@moondreamsdev/dreamer-ui/components';
 import { useToast } from '@moondreamsdev/dreamer-ui/hooks';
 import { join } from '@moondreamsdev/dreamer-ui/utils';
-import { useAuthContext } from '@hooks';
+import { useAuthContext } from '@hooks/useAuth';
 
 interface AuthFormProps {
   mode: 'login' | 'signup';

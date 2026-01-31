@@ -2,7 +2,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import { Button } from '@moondreamsdev/dreamer-ui/components';
 import { useToast } from '@moondreamsdev/dreamer-ui/hooks';
 import ThemeToggle from '@ui/ThemeToggle';
-import { useAuthContext } from '@hooks';
+import { useAuthContext } from '@hooks/useAuth';
 
 function Layout() {
   const { user, signOut } = useAuthContext();

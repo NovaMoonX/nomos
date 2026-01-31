@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Home from '@screens/Home';
 import Layout from '@ui/Layout';
 import Loading from '@ui/Loading';
-import { Auth } from '@components';
+import { Auth } from '@components/Auth';
 
 export const router = createBrowserRouter([
   {
