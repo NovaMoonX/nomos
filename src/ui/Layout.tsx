@@ -33,19 +33,24 @@ function Layout() {
     { value: 'categories', label: 'Categories' },
   ];
 
+  const tabPathMap: Record<string, string> = {
+    'home': '/',
+    'categories': '/categories',
+  };
+
+  const pathTabMap: Record<string, string> = {
+    '/': 'home',
+    '/categories': 'categories',
+  };
+
   const getCurrentTab = () => {
-    if (location.pathname === '/categories') {
-      return 'categories';
-    }
-    
-    return 'home';
+    return pathTabMap[location.pathname] || 'home';
   };
 
   const handleTabChange = (value: string) => {
-    if (value === 'categories') {
-      navigate('/categories');
-    } else {
-      navigate('/');
+    const path = tabPathMap[value];
+    if (path) {
+      navigate(path);
     }
   };
 

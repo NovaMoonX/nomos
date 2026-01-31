@@ -7,7 +7,7 @@ import {
   Form,
   FormFactories,
 } from '@moondreamsdev/dreamer-ui/components';
-import { useToast } from '@moondreamsdev/dreamer-ui/hooks';
+import { useToast, useActionModal } from '@moondreamsdev/dreamer-ui/hooks';
 import { Plus, Trash } from '@moondreamsdev/dreamer-ui/symbols';
 import { useCategories } from '@hooks/useCategories';
 import type { Category, ImportanceLevel } from '@lib/types';
@@ -36,6 +36,7 @@ interface CategoryFormData {
 export function Categories() {
   const { categories, loading, createCategory, updateCategory, deleteCategory } = useCategories();
   const { addToast } = useToast();
+  const { confirm } = useActionModal();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingCategory, setEditingCategory] = useState<Category | null>(null);
 
@@ -92,7 +93,14 @@ export function Categories() {
   };
 
   const handleDelete = async (id: string, name: string) => {
-    if (!confirm(`Are you sure you want to delete "${name}"?`)) {
+    const result = await confirm({
+      title: 'Delete Category',
+      message: `Are you sure you want to delete "${name}"? This action cannot be undone.`,
+      confirmText: 'Delete',
+      destructive: true,
+    });
+
+    if (!result) {
       return;
     }
 
@@ -180,8 +188,8 @@ export function Categories() {
                   <h3 className="text-xl font-semibold">{category.name}</h3>
                   <Button
                     onClick={() => handleOpenEditModal(category)}
-                    variant="tertiary"
-                    size="icon"
+                    variant="outline"
+                    size="sm"
                     aria-label="Edit category"
                   >
                     Edit
