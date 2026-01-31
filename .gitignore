@@ -28,6 +28,7 @@ tsconfig.app.tsbuildinfo
 
 # Firebase
 .firebase
+.env
 
 # Scaffold files
 .scaffold-progress

@@ -3,8 +3,13 @@ import { createBrowserRouter } from 'react-router-dom';
 import Home from '@screens/Home';
 import Layout from '@ui/Layout';
 import Loading from '@ui/Loading';
+import { Auth } from '@components';
 
 export const router = createBrowserRouter([
+  {
+    path: '/auth',
+    element: <Auth />,
+  },
   {
     path: '/',
     element: <Layout />,
