@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import Home from '@screens/Home';
+import { Categories } from '@screens/Categories';
 import Layout from '@ui/Layout';
 import Loading from '@ui/Loading';
 import { Auth } from '@components/Auth';
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: 'categories',
+        element: <Categories />,
       },
       // About page (lazy loaded)
       {

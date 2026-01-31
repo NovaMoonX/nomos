@@ -11,6 +11,10 @@ Nomos is a private, local AI assistant that transforms raw intent into a structu
 
 ### 📊 Data Management
 - **Categories**: Organize your goals with importance levels (low, medium, high, critical)
+  - Create and edit categories with custom names, descriptions, and colors
+  - Visual importance badges for quick identification
+  - Grid layout for easy browsing
+  - Full CRUD operations (Create, Read, Update, Delete)
 - **Goals**: High-level objectives linked to categories with target dates
 - **Tasks**: Actionable items linked to goals with priority and due dates
 - All data is user-scoped and protected by Firestore security rules
@@ -20,6 +24,8 @@ Nomos is a private, local AI assistant that transforms raw intent into a structu
 - Dark/light theme support
 - Responsive design for all screen sizes
 - Toast notifications for user feedback
+- Tab-based navigation for easy access to different sections
+- Modal-based forms for creating and editing data
 
 ## Tech Stack
 
@@ -61,6 +67,29 @@ npm install
 ```bash
 npm run dev
 ```
+
+## Usage
+
+After starting the application and signing in:
+
+### Managing Categories
+
+1. **View Categories**: Click the "Categories" tab in the navigation to see all your life categories
+2. **Create Category**: 
+   - Click the "Create Category" button
+   - Fill in the category name (required)
+   - Add an optional description
+   - Select the importance level (Low, Medium, High, or Critical)
+   - Optionally choose a color for visual identification
+   - Click "Create Category" to save
+3. **Edit Category**: Click the "Edit" button on any category card to modify its details
+4. **Delete Category**: Click the "Delete" button on a category card to remove it (confirmation required)
+
+Categories are displayed in a responsive grid layout with:
+- Color-coded importance badges
+- Optional custom color indicators
+- Full descriptions
+- Edit and delete controls
 
 ## Firebase Configuration
 
