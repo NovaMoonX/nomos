@@ -94,7 +94,34 @@ src/
 ├── utils/      # Utility functions
 ```
 
-### 6. Import Patterns
+### 7. Timestamp Handling
+- **ALWAYS** use millisecond timestamps (number type) instead of Date objects
+- Store all dates as Unix timestamps in milliseconds
+- Use `Date.now()` to get current timestamp
+- Use `new Date(timestamp).toLocaleString()` for display purposes only
+
+```tsx
+// ❌ NEVER use Date objects in interfaces or database
+interface Entity {
+  createdAt: Date; // WRONG
+  updatedAt: Date; // WRONG
+}
+
+// ✅ ALWAYS use number (millisecond timestamps)
+interface Entity {
+  createdAt: number; // Unix timestamp in milliseconds
+  updatedAt: number; // Unix timestamp in milliseconds
+}
+
+// Example usage
+const newEntity = {
+  id: '123',
+  createdAt: Date.now(),
+  updatedAt: Date.now(),
+};
+```
+
+### 8. Import Patterns
 ```tsx
 // Dreamer UI imports
 import { Button } from '@moondreamsdev/dreamer-ui/components';
@@ -113,7 +140,7 @@ import { store } from '@store';
 import { helper } from '@utils/helper';
 ```
 
-### 8. Available Import Aliases
+### 9. Available Import Aliases
 - `@/` → `src/`
 - `@components/` → `src/components/`
 - `@contexts/` → `src/contexts/`
@@ -130,6 +157,7 @@ import { helper } from '@utils/helper';
 - Component syntax: `export function ComponentName`
 - **Indentation: Always use 2 spaces (NOT 4 spaces or tabs)**
 - **Class names: ALWAYS use `join()` for conditionals - NEVER template literals**
+- **Timestamps: ALWAYS use number (milliseconds) - NEVER Date objects**
 - Check Dreamer UI first
 - Use import aliases: `@components/`, `@hooks/`, `@lib/`, `@screens/`, `@ui/`, etc.
 - Follow structured folder organization with proper separation of concerns
@@ -139,10 +167,11 @@ import { helper } from '@utils/helper';
 - **Template literals with `${` in className are FORBIDDEN**
 - **Always import and use `join` from `@moondreamsdev/dreamer-ui/utils`**
 - **Before writing any conditional className, ask: "Am I using join()?"**
+- **Date objects are FORBIDDEN in interfaces and database - use millisecond timestamps (number)**
 
 ## 📚 Documentation Maintenance
 
-### 9. README.md Update Rule
+### 10. README.md Update Rule
 **CRITICAL**: The README.md must be updated with **EVERY** change to the codebase.
 
 **When to Update README:**
