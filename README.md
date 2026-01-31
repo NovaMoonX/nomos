@@ -88,6 +88,8 @@ The application uses the following security model:
 
 ## Data Schema
 
+All timestamps are stored as Unix timestamps in milliseconds (number type, not Date objects).
+
 ### Category
 ```typescript
 interface Category {
@@ -97,8 +99,8 @@ interface Category {
   description?: string;
   importance: 'low' | 'medium' | 'high' | 'critical';
   color?: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: number; // Unix timestamp in milliseconds
+  updatedAt: number; // Unix timestamp in milliseconds
 }
 ```
 
@@ -110,10 +112,10 @@ interface Goal {
   title: string;
   description?: string;
   categoryId: string;
-  targetDate?: Date;
+  targetDate?: number; // Unix timestamp in milliseconds
   completed: boolean;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: number; // Unix timestamp in milliseconds
+  updatedAt: number; // Unix timestamp in milliseconds
 }
 ```
 
@@ -126,11 +128,11 @@ interface Task {
   description?: string;
   goalId: string;
   categoryId?: string;
-  dueDate?: Date;
+  dueDate?: number; // Unix timestamp in milliseconds
   completed: boolean;
   priority?: 'low' | 'medium' | 'high' | 'critical';
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: number; // Unix timestamp in milliseconds
+  updatedAt: number; // Unix timestamp in milliseconds
 }
 ```
 

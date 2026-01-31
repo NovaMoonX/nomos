@@ -13,8 +13,8 @@ export type ImportanceLevel = 'low' | 'medium' | 'high' | 'critical';
 export interface BaseEntity {
   id: string;
   ownerId: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: number; // Unix timestamp in milliseconds
+  updatedAt: number; // Unix timestamp in milliseconds
 }
 
 /**
@@ -34,7 +34,7 @@ export interface Goal extends BaseEntity {
   title: string;
   description?: string;
   categoryId: string;
-  targetDate?: Date;
+  targetDate?: number; // Unix timestamp in milliseconds
   completed: boolean;
 }
 
@@ -46,7 +46,7 @@ export interface Task extends BaseEntity {
   description?: string;
   goalId: string;
   categoryId?: string;
-  dueDate?: Date;
+  dueDate?: number; // Unix timestamp in milliseconds
   completed: boolean;
   priority?: ImportanceLevel;
 }
