@@ -22,9 +22,9 @@ export interface BaseEntity {
  */
 export interface Category extends BaseEntity {
   name: string;
-  description?: string;
+  description: string | null;
   importance: ImportanceLevel;
-  color?: string;
+  color: string | null;
 }
 
 /**
@@ -32,9 +32,9 @@ export interface Category extends BaseEntity {
  */
 export interface Goal extends BaseEntity {
   title: string;
-  description?: string;
+  description: string | null;
   categoryId: string;
-  targetDate?: number; // Unix timestamp in milliseconds
+  targetDate: number | null; // Unix timestamp in milliseconds
   completed: boolean;
 }
 
@@ -43,10 +43,10 @@ export interface Goal extends BaseEntity {
  */
 export interface Task extends BaseEntity {
   title: string;
-  description?: string;
+  description: string | null;
   goalId: string;
-  categoryId?: string;
-  dueDate?: number; // Unix timestamp in milliseconds
+  categoryId: string | null;
+  dueDate: number | null; // Unix timestamp in milliseconds
   completed: boolean;
-  priority?: ImportanceLevel;
+  priority: ImportanceLevel | null;
 }

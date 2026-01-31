@@ -87,6 +87,7 @@ The application uses the following security model:
 ## Data Schema
 
 All timestamps are stored as Unix timestamps in milliseconds (number type, not Date objects).
+Optional fields use `| null` instead of `?:` for better Firebase compatibility.
 
 ### Category
 ```typescript
@@ -94,9 +95,9 @@ interface Category {
   id: string;
   ownerId: string;
   name: string;
-  description?: string;
+  description: string | null;
   importance: 'low' | 'medium' | 'high' | 'critical';
-  color?: string;
+  color: string | null;
   createdAt: number; // Unix timestamp in milliseconds
   updatedAt: number; // Unix timestamp in milliseconds
 }
@@ -108,9 +109,9 @@ interface Goal {
   id: string;
   ownerId: string;
   title: string;
-  description?: string;
+  description: string | null;
   categoryId: string;
-  targetDate?: number; // Unix timestamp in milliseconds
+  targetDate: number | null; // Unix timestamp in milliseconds
   completed: boolean;
   createdAt: number; // Unix timestamp in milliseconds
   updatedAt: number; // Unix timestamp in milliseconds
@@ -123,12 +124,12 @@ interface Task {
   id: string;
   ownerId: string;
   title: string;
-  description?: string;
+  description: string | null;
   goalId: string;
-  categoryId?: string;
-  dueDate?: number; // Unix timestamp in milliseconds
+  categoryId: string | null;
+  dueDate: number | null; // Unix timestamp in milliseconds
   completed: boolean;
-  priority?: 'low' | 'medium' | 'high' | 'critical';
+  priority: 'low' | 'medium' | 'high' | 'critical' | null;
   createdAt: number; // Unix timestamp in milliseconds
   updatedAt: number; // Unix timestamp in milliseconds
 }
